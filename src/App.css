@@ -1,0 +1,13 @@
+.my-nav-bar{
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+}
+
+.App-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+

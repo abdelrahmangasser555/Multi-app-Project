@@ -1,0 +1,19 @@
+
+.home{
+  height: 30vh;
+  margin-top: 20vh;
+  width: 80vw;
+  border-radius: 3vh;
+  box-shadow: 0 0 10px 0 rgba(255, 251, 251, 0.466);
+  transition: all 0.7s ease;
+}
+
+.home:hover{
+  box-shadow: 0 0 30px 0 rgba(255, 251, 251, 0.466);
+}
+
+.my-cards-container{
+  margin-top: 20vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+}
