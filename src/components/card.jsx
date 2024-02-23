@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Card({ title, description, link }) {
+export default function Card({ title, description, link, image }) {
   return (
     <Link to={link}>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            src={image ? image : "https://picsum.photos/200"}
             alt="Shoes"
             className="rounded-xl"
           />

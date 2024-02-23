@@ -1,0 +1,40 @@
+.my-courses-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-top: 5vh;
+}
+
+.my-courses-container h1{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.my-courses-container h1 span{
+    color: #ff6b6b;
+}
+.my-youtube-vedios{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 80vw));
+  margin-bottom: 100px;
+
+}
+.one-youtube-vedio{
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10vh;
+}
+
+.add-link-button{
+  margin-left: 10px;
+}
+.modal-title{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.id-input{
+  width:75%;
+}

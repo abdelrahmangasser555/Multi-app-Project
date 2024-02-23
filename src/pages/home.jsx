@@ -2,6 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import Card from "../components/card";
 
 import "../pagesStyles/home.css";
+import settings from "../images/colored-settings.png";
+import profile from "../images/user-color.png";
+import apps from "../images/app.png";
 
 export default function Home() {
   const cardsInfo = [
@@ -9,16 +12,19 @@ export default function Home() {
       title: "apps",
       description: "this is where have all my apps",
       link: "/apps",
+      image: apps,
     },
     {
       title: "My Profile",
       description: "Visist My Profile",
       link: "/profile",
+      image: profile,
     },
     {
       title: "settings",
       description: "adjust thuings as you want",
       Link: "/settings",
+      image: settings,
     },
   ];
   return (
@@ -43,6 +49,7 @@ export default function Home() {
               title={card.title}
               description={card.description}
               link={card.link}
+              image={card.image}
               key={index}
             />
           );

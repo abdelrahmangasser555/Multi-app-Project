@@ -9,15 +9,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/home.jsx";
+import Courses from "./pages/my-apps/courses.jsx";
 
 export default function Index() {
   const routes = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
-        <Route path="apps" element={<h1>apps goes here</h1>}>
+        <Route path="apps" element={<Courses />}>
           <Route index element={<h1>notes app goes here</h1>} />
-          <Route path="courses" element={<h1>apps goes here</h1>} />
+          <Route path="courses" element={<Courses />} />
         </Route>
       </Route>
     )
