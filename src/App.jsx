@@ -4,9 +4,6 @@ import { connectingToDatabase } from "./backend/backendFunctions";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    connectingToDatabase();
-  }, []);
   return (
     <div className="App-container">
       <div className="my-nav-bar navbar bg-base-100">

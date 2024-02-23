@@ -2,13 +2,21 @@ import { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import "../../pagesStyles/courses.css";
 import { extractYoutubeId } from "../../utilities/useFulFunc";
+import { getAllLinks, addYoutubeLink } from "../../backend/backendFunctions";
 
 export default function Courses() {
   const [vedioIds, setVedioIds] = useState([]);
   const [vedioEnter, setVedioEnter] = useState("");
 
   useEffect(() => {
-    console.log(vedioEnter);
+    getAllLinks().then((data) => {
+      data.forEach((link) => {
+        setVedioIds((prevIds) => [
+          ...prevIds,
+          extractYoutubeId(link.youtubeLink),
+        ]);
+      });
+    });
   }, [vedioEnter]);
 
   function handleIdChange(e) {

@@ -15,5 +15,12 @@ export async function connectingToDatabase() {
 export async function addYoutubeLink(Link) {
   const user = await connectingToDatabase();
   const newId = await user.functions.addVedioLink(Link);
+  console.log(newId);
   return newId;
+}
+
+export async function getAllLinks() {
+  const user = await connectingToDatabase();
+  const allLinks = await user.functions.getAllYoutubeLinks();
+  return allLinks;
 }
