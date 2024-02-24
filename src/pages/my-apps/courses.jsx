@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import "../../pagesStyles/courses.css";
-import { extractYoutubeId } from "../../utilities/useFulFunc";
+import {
+  extractYoutubeId,
+  convertToReadableDate,
+  convertToReadableDateNotLong,
+} from "../../utilities/useFulFunc";
 import {
   getAllLinks,
   addYoutubeLink,
@@ -96,6 +100,9 @@ export default function Courses() {
                 {videoObject.notesNames.map((note, noteIndex) => (
                   <button key={noteIndex} className="notes-p">
                     {note.title}
+                    <p className="hovered-date">
+                      {convertToReadableDateNotLong(note.date)}
+                    </p>
                   </button>
                 ))}
               </div>

@@ -6,7 +6,6 @@ export default function NotesDialog({ index, setVedioObjects }) {
     title: "",
     content: "",
   });
-  console.log(index);
 
   // Function to handle changes in the input fields
   function handleInputChange(e) {
