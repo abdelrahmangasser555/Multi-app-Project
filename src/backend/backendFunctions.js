@@ -12,15 +12,33 @@ export async function connectingToDatabase() {
   }
 }
 
-export async function addYoutubeLink(Link) {
-  const user = await connectingToDatabase();
-  const newId = await user.functions.addVedioLink(Link);
-  console.log(newId);
-  return newId;
+export function addYoutubeLink(data) {
+  const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
+  if (elementsInLocalStorage === null) {
+    localStorage.setItem("youtubeLinks", JSON.stringify([data]));
+  } else {
+    const parsedElements = JSON.parse(elementsInLocalStorage);
+    parsedElements.push(data);
+    localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
+  }
 }
 
-export async function getAllLinks() {
-  const user = await connectingToDatabase();
-  const allLinks = await user.functions.getAllYoutubeLinks();
-  return allLinks;
+export function getAllLinks() {
+  const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
+  if (elementsInLocalStorage === null) {
+    return [];
+  } else {
+    return JSON.parse(elementsInLocalStorage);
+  }
+}
+
+export function deleteLink(index) {
+  const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
+  if (elementsInLocalStorage === null) {
+    return;
+  } else {
+    const parsedElements = JSON.parse(elementsInLocalStorage);
+    parsedElements.splice(index, 1);
+    localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
+  }
 }

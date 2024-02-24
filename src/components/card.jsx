@@ -9,7 +9,7 @@ export default function Card({ title, description, link, image }) {
           <img
             src={image ? image : "https://picsum.photos/200"}
             alt="Shoes"
-            className="rounded-xl"
+            className="image-in-card rounded-xl shadow-lg"
           />
         </figure>
         <div className="card-body items-center text-center">

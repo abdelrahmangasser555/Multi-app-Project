@@ -17,3 +17,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
 }
+
+.image-in-card{
+  height: 305px;
+}
+
+.image-in-card:hover{
+  transform: scale(1.1);
+  transition: all 0.7s ease;
+}

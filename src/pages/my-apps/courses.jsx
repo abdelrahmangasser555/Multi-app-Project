@@ -9,24 +9,19 @@ export default function Courses() {
   const [vedioEnter, setVedioEnter] = useState("");
 
   useEffect(() => {
-    getAllLinks().then((data) => {
-      data.forEach((link) => {
-        setVedioIds((prevIds) => [
-          ...prevIds,
-          extractYoutubeId(link.youtubeLink),
-        ]);
-      });
-    });
-  }, [vedioEnter]);
-
-  function handleIdChange(e) {
-    setVedioEnter(e.target.value);
-  }
-
+    const allLinks = getAllLinks();
+    console.log(allLinks);
+    setVedioIds(allLinks);
+  }, []);
   function addVedio() {
     const myVedioId = extractYoutubeId(vedioEnter);
-    setVedioIds((prevIds) => [...prevIds, myVedioId]);
-    setVedioEnter(""); // Clear the input field
+    console.log(myVedioId);
+    addYoutubeLink(myVedioId);
+    setVedioIds([...vedioIds, myVedioId]);
+    setVedioEnter("");
+  }
+  function handleIdChange(e) {
+    setVedioEnter(e.target.value);
   }
 
   return (
@@ -35,9 +30,9 @@ export default function Courses() {
         My <span>Courses</span> Section
       </h1>
       <div className="my-youtube-vedios">
-        {vedioIds.map((videoId) => (
+        {vedioIds?.map((videoId, index) => (
           <Youtube
-            key={videoId}
+            key={index}
             videoId={videoId}
             className="one-youtube-vedio"
           />
@@ -59,7 +54,7 @@ export default function Courses() {
             type="text"
             placeholder="input the link in here"
             name="youtube-link"
-            onChange={handleIdChange}
+            onChange={(e) => handleIdChange(e)}
             value={vedioEnter}
           />
           <button className="add-link-button btn" onClick={addVedio}>
