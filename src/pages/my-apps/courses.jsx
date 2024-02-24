@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import "../../pagesStyles/courses.css";
 import { extractYoutubeId } from "../../utilities/useFulFunc";
-import { getAllLinks, addYoutubeLink } from "../../backend/backendFunctions";
+import {
+  getAllLinks,
+  addYoutubeLink,
+  deleteLink,
+} from "../../backend/backendFunctions";
 import { useNavigation } from "react-router-dom";
 
 export default function Courses() {
@@ -74,6 +78,17 @@ export default function Courses() {
             <div className="right-side-youtube-container">
               <h1 className="header-one-youtube-vedio">{videoObject.title}</h1>
               <p>{videoObject.description}</p>
+              <button
+                className="delete-button btn btn-outline btn-accent"
+                onClick={() => {
+                  deleteLink(index);
+                  setVedioObjects((prevVedios) =>
+                    prevVedios.filter((vedio, i) => i !== index)
+                  );
+                }}
+              >
+                delete
+              </button>
             </div>
           </div>
         ))}

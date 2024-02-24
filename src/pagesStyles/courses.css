@@ -66,6 +66,7 @@
   padding: 3vh 10vh;
   border-radius: 2vh;
   margin-bottom: 10vh;
+  position: relative;
 }
 
 .my-one-vedio-container:nth-child(even){
@@ -79,4 +80,25 @@
   text-transform: capitalize;
   padding: 1vh 2vw;
   border-radius: 1vh;
+}
+
+.right-side-youtube-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.delete-button{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 1vh;
+  cursor: pointer;
+}
+
+.my-one-vedio-container:nth-child(even) .delete-button{
+  right: auto;
+  left: 20px;
 }
