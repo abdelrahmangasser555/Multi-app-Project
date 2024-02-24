@@ -1,55 +1,69 @@
 import React from "react";
 import { addNoteToVideo } from "../backend/backendFunctions";
-export default function NotesDialog({
-  index,
-  myNotes,
-  setMyNotes,
-  setVedioObjects,
-}) {
-  function handleIdChange(e) {
-    const { name, value } = e.target; // Corrected from e.value to e.target
-    setMyNotes({ ...myNotes, [name]: value });
+
+export default function NotesDialog({ index, setVedioObjects }) {
+  const [myNotes, setMyNotes] = React.useState({
+    title: "",
+    content: "",
+  });
+  console.log(index);
+
+  // Function to handle changes in the input fields
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setMyNotes((prevNotes) => ({
+      ...prevNotes,
+      [name]: value,
+    }));
+  }
+
+  // Function to handle adding a new note
+  function handleAddNote() {
+    // Add the note to the corresponding video
+    addNoteToVideo(myNotes, index);
+
+    // Clear the input fields
+    setMyNotes({ title: "", content: "" });
+
+    // Update the videoObjects state to reflect the changes
+    setVedioObjects((prevVedios) =>
+      prevVedios.map((vedio, i) => {
+        if (i === index) {
+          // Add the new note to the notesNames array of the corresponding video
+          vedio.notesNames.push(myNotes);
+        }
+        return vedio;
+      })
+    );
   }
 
   return (
-    <dialog id="notes-dialog-id" className="modal">
+    <dialog id={`notes-dialog-id-${index}`} className="modal">
       <div className="modal-box">
         <h3 className="modal-title font-bold text-lg">Enter Note below</h3>
         <input
           className="title-dialog-input input"
-          placeholder="add a title"
+          placeholder="Add a title"
           name="title"
           value={myNotes.title}
-          onChange={(e) => handleIdChange(e)} // Added onChange handler here
+          onChange={handleInputChange}
         />
         <textarea
           className="text-area-input textarea textarea-bordered textarea-lg w-full max-w-xs"
-          type="text"
-          placeholder="note info goes here ..."
+          placeholder="Note info goes here..."
           name="content"
-          onChange={(e) => handleIdChange(e)} // This was correct
           value={myNotes.content}
+          onChange={handleInputChange}
         />
         <button
           className="add-link-button btn btn-outline btn-accent"
-          onClick={() => {
-            addNoteToVideo(myNotes, index);
-            setMyNotes({ title: "", content: "" });
-            setVedioObjects((prevVedios) =>
-              prevVedios.map((vedio, i) => {
-                if (i === index) {
-                  vedio.notesNames.push(myNotes);
-                }
-                return vedio;
-              })
-            );
-          }}
+          onClick={handleAddNote}
         >
-          add Note
+          Add Note
         </button>
         <div className="modal-action">
           <form method="dialog">
-            <button className="btn">cancel</button>
+            <button className="btn">Cancel</button>
           </form>
         </div>
       </div>

@@ -11,7 +11,6 @@ import {
 import { useNavigation } from "react-router-dom";
 import NotesDialog from "../../components/notesDialog";
 export default function Courses() {
-  console.log("Courses is rendered");
   window.postMessage(
     {
       action: "NAVIGATE",
@@ -27,11 +26,6 @@ export default function Courses() {
     title: "",
     description: "",
     notesNames: [],
-  });
-
-  const [myNotes, setMyNotes] = useState({
-    title: "",
-    content: "",
   });
 
   useEffect(() => {
@@ -90,22 +84,19 @@ export default function Courses() {
                 onClick={() => {
                   // pass the key to notes dialog
 
-                  document.getElementById("notes-dialog-id").showModal();
+                  document
+                    .getElementById(`notes-dialog-id-${index}`)
+                    .showModal();
                 }}
               >
                 add note
               </button>
-              <NotesDialog
-                index={index}
-                myNotes={myNotes}
-                setMyNotes={setMyNotes}
-                setVedioObjects={setVedioObjects}
-              />
+              <NotesDialog index={index} setVedioObjects={setVedioObjects} />
               <div className="youtube-notes-div">
-                {videoObject.notesNames.map((note, index) => (
-                  <p key={index} className="notes-p">
+                {videoObject.notesNames.map((note, noteIndex) => (
+                  <button key={noteIndex} className="notes-p">
                     {note.title}
-                  </p>
+                  </button>
                 ))}
               </div>
               <button className="edit-button btn">edit</button>
