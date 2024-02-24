@@ -42,3 +42,16 @@ export function deleteLink(index) {
     localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
   }
 }
+
+export function addNoteToVideo(note, videoIndex) {
+  // add current date to the nore note is an object
+  note = { ...note, date: new Date() };
+  const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
+  if (elementsInLocalStorage === null) {
+    return;
+  } else {
+    const parsedElements = JSON.parse(elementsInLocalStorage);
+    parsedElements[videoIndex].notesNames.push(note);
+    localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
+  }
+}

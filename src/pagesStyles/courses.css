@@ -90,15 +90,100 @@
 
 .delete-button{
   position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 1vh;
+  cursor: pointer;
+  border: #ff6b6b 2px solid;
+  transition: all 0.3s ease;
+}
+
+
+
+.delete-button:hover{
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.edit-button{
+  position: absolute;
   top: 20px;
   right: 20px;
   border: none;
   padding: 1vh 2vw;
   border-radius: 1vh;
   cursor: pointer;
+  border:  whitesmoke 2px solid;
+  transition: all 0.3s ease;
 }
 
-.my-one-vedio-container:nth-child(even) .delete-button{
-  right: auto;
-  left: 20px;
+.edit-button:hover{
+  background-color: whitesmoke;
+  color: black;
+}
+
+.add-note-button{
+  margin-top: 20px;
+}
+
+.youtube-notes-div{
+  width: 20vw;
+  background-color: transparent;
+  min-height: 15vh;
+  border-radius: 2vh;
+  border: #ff6b6b 2px solid;
+  margin-top: 3vh;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+
+}
+
+.notes-p{
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ff6b6b;
+  padding: 4px 5px;
+  border-radius: 1vh;
+  text-transform: capitalize;
+  text-align: center;
+  height: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: white 2px solid;
+}
+
+.notes-p:hover{
+  background-color: #ff6b6b;
+  color: white;
+}
+
+/* For Webkit browsers (such as Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+
+  /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Color of the scrollbar handle */
+  border-radius: 4px;
+  /* Rounded corners of the scrollbar handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Color of the scrollbar handle on hover */
 }

@@ -6,10 +6,12 @@ import {
   getAllLinks,
   addYoutubeLink,
   deleteLink,
+  addNoteToVideo,
 } from "../../backend/backendFunctions";
 import { useNavigation } from "react-router-dom";
-
+import NotesDialog from "../../components/notesDialog";
 export default function Courses() {
+  console.log("Courses is rendered");
   window.postMessage(
     {
       action: "NAVIGATE",
@@ -25,6 +27,11 @@ export default function Courses() {
     title: "",
     description: "",
     notesNames: [],
+  });
+
+  const [myNotes, setMyNotes] = useState({
+    title: "",
+    content: "",
   });
 
   useEffect(() => {
@@ -79,7 +86,31 @@ export default function Courses() {
               <h1 className="header-one-youtube-vedio">{videoObject.title}</h1>
               <p>{videoObject.description}</p>
               <button
-                className="delete-button btn btn-outline btn-accent"
+                className="add-note-button btn"
+                onClick={() => {
+                  // pass the key to notes dialog
+
+                  document.getElementById("notes-dialog-id").showModal();
+                }}
+              >
+                add note
+              </button>
+              <NotesDialog
+                index={index}
+                myNotes={myNotes}
+                setMyNotes={setMyNotes}
+                setVedioObjects={setVedioObjects}
+              />
+              <div className="youtube-notes-div">
+                {videoObject.notesNames.map((note, index) => (
+                  <p key={index} className="notes-p">
+                    {note.title}
+                  </p>
+                ))}
+              </div>
+              <button className="edit-button btn">edit</button>
+              <button
+                className="delete-button btn btn-outline "
                 onClick={() => {
                   deleteLink(index);
                   setVedioObjects((prevVedios) =>
