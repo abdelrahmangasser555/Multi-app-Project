@@ -186,6 +186,7 @@
 ::-webkit-scrollbar {
   width: 5px;
   border-radius: 2px;
+  display: none;
 
   /* Set the width of the scrollbar */
 }
@@ -205,4 +206,37 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
   /* Color of the scrollbar handle on hover */
+}
+
+
+.display-note-dialog-content{
+  text-align: left;
+  width: 90%;
+  margin: auto;
+  padding: 20px 20px;
+  border: #f1f1f1 2px solid;
+  border-radius: 2vh;
+  overflow-y: scroll;
+  max-height: 60%;
+  cursor: not-allowed;
+}
+
+.display-note-dialog-content::-webkit-scrollbar {
+  display: none;
+}
+.display-note-modal-title{
+  margin-bottom: 3vh;
+}
+
+.display-notes-modal-container{
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* position: relative; */
+} 
+
+.display-note-dialog-date{
+  position: absolute;
+  bottom: 10px;
+  right: 35%;
 }

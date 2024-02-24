@@ -14,6 +14,7 @@ import {
 } from "../../backend/backendFunctions";
 import { useNavigation } from "react-router-dom";
 import NotesDialog from "../../components/notesDialog";
+import DisplayNotesDialog from "../../components/displayNotesDialog";
 export default function Courses() {
   window.postMessage(
     {
@@ -98,11 +99,28 @@ export default function Courses() {
               <NotesDialog index={index} setVedioObjects={setVedioObjects} />
               <div className="youtube-notes-div">
                 {videoObject.notesNames.map((note, noteIndex) => (
-                  <button key={noteIndex} className="notes-p">
+                  <button
+                    key={noteIndex}
+                    className="notes-p"
+                    onClick={() => {
+                      document
+                        .getElementById(
+                          `display-notes-dialog-${index}-${noteIndex}`
+                        )
+                        .showModal();
+                    }}
+                  >
                     {note.title}
                     <p className="hovered-date">
                       {convertToReadableDateNotLong(note.date)}
                     </p>
+                    <DisplayNotesDialog
+                      title={note.title}
+                      content={note.content}
+                      date={convertToReadableDate(note.date)}
+                      index={index}
+                      noteIndex={noteIndex}
+                    />
                   </button>
                 ))}
               </div>
