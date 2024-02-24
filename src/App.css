@@ -2,6 +2,7 @@
     padding: 10px 0;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 .App-container{
@@ -9,5 +10,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    z-index: 100 !important;
 }
 

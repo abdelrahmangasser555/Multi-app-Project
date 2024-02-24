@@ -12,6 +12,7 @@ import Home from "./pages/home.jsx";
 import Courses from "./pages/my-apps/courses.jsx";
 
 export default function Index() {
+  // localStorage.removeItem("youtubeLinks");
   const routes = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
