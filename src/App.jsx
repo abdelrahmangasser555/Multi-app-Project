@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { connectingToDatabase } from "./backend/backendFunctions";
 import "./App.css";
 
@@ -24,31 +24,14 @@ function App() {
               </NavLink>
             </li>
             <li>
-              <details>
+              <NavLink
+                to="/apps"
+                className={({ isActive }) => {
+                  isActive ? "active" : "";
+                }}
+              >
                 <summary>my-apps</summary>
-                <ul className="p-2">
-                  <li>
-                    <NavLink
-                      to="/apps"
-                      className={({ isActive }) => {
-                        return isActive ? "active" : "";
-                      }}
-                    >
-                      note-taking
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/apps/courses"
-                      className={({ isActive }) => {
-                        return isActive ? "active" : "";
-                      }}
-                    >
-                      courses
-                    </NavLink>
-                  </li>
-                </ul>
-              </details>
+              </NavLink>
             </li>
             <li>
               <a>my-profile</a>

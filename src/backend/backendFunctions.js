@@ -45,7 +45,9 @@ export function deleteLink(index) {
 
 export function addNoteToVideo(note, videoIndex) {
   // add current date to the nore note is an object
-  note = { ...note, date: new Date() };
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString();
+  note = { ...note, date: formattedDate };
   const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
   if (elementsInLocalStorage === null) {
     return;

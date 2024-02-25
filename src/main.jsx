@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/home.jsx";
+import MainApps from "./pages/my-apps/mainApps.jsx";
 import Courses from "./pages/my-apps/courses.jsx";
 
 export default function Index() {
@@ -17,7 +18,7 @@ export default function Index() {
     createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
-        <Route path="apps" element={<Courses />}>
+        <Route path="apps" element={<MainApps />}>
           <Route index element={<h1>notes app goes here</h1>} />
           <Route path="courses" element={<Courses />} />
         </Route>
