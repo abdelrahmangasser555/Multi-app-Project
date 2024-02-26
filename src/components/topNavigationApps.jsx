@@ -7,19 +7,27 @@ export default function TopNavigationApps() {
     <nav className="top-navigation-apps">
       <ul className="top-navigation-apps-list">
         <NavLink
-          to="/apps"
-          end
+          to="/apps/task"
           className={({ isActive }) => (isActive ? "active-app" : "")}
           id="item-nav-apps"
         >
           Notes
         </NavLink>
         <NavLink
-          to="/apps/courses"
+          to="."
           className={({ isActive }) => (isActive ? "active-app" : "")}
           id="item-nav-apps"
+          end
         >
           Courses
+        </NavLink>
+        <NavLink
+          to="aiWebsite"
+          className={({ isActive }) => (isActive ? "active-app" : "")}
+          id="item-nav-apps"
+          end
+        >
+          ai website
         </NavLink>
       </ul>
     </nav>

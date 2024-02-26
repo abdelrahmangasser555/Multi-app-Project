@@ -73,6 +73,12 @@
   flex-direction: row-reverse;
 }
 
+.my-courses-container:nth-child(even)  .delete-button{
+  top: 10px;
+  left: 10px;
+  right: auto;
+}
+
 .header-one-youtube-vedio{
   font-weight: 800;
   font-size: 1.9rem;
@@ -109,10 +115,10 @@
 
 .edit-button{
   position: absolute;
-  top: 20px;
-  right: 20px;
+  bottom: 20px;
+  right: 10px;
   border: none;
-  padding: 1vh 2vw;
+  padding: 0.5vh 1vw;
   border-radius: 1vh;
   cursor: pointer;
   border:  whitesmoke 2px solid;
