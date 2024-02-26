@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview" ,
-    "email" : "email dev --dir src/emails"
+    "preview": "vite preview",
+    "email": "email dev --dir src/emails"
   },
   "dependencies": {
+    "@langchain/openai": "^0.0.14",
     "@react-email/components": "0.0.15",
     "@react-spring/web": "^9.7.3",
+    "cheerio": "^1.0.0-rc.12",
+    "langchain": "^0.1.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-email": "2.1.0",
