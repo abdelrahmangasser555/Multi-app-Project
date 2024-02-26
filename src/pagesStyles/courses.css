@@ -246,3 +246,62 @@
   bottom: 10px;
   right: 35%;
 }
+
+.generate-road-map{
+  margin-left: 3vw;
+}
+
+.road-map {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80vw;
+  margin: 5vh auto;
+}
+
+.road-map h1 {
+  text-align: center;
+  color: #333;
+}
+
+.road-map-steps,
+.road-map-resources,
+.road-map-learned {
+  margin-bottom: 20px;
+}
+
+.road-map-steps h2,
+.road-map-resources h2,
+.road-map-learned h2 {
+  color: #555;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.road-map-steps ol,
+.road-map-resources ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.road-map-steps li,
+.road-map-resources li {
+  margin-bottom: 10px;
+}
+
+.road-map-resources a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.road-map-resources a:hover {
+  color: #0056b3;
+}
+
+.road-map-learned p {
+  font-style: italic;
+  color: #777;
+}

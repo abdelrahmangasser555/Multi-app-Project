@@ -12,6 +12,7 @@ import Home from "./pages/home.jsx";
 import MainApps from "./pages/my-apps/mainApps.jsx";
 import Courses from "./pages/my-apps/courses.jsx";
 import MyTasksApp from "./pages/my-apps/myTasks.jsx";
+import { loader as roadMapLoader } from "./pages/my-apps/courses.jsx";
 
 export default function Index() {
   // localStorage.removeItem("youtubeLinks");
@@ -20,7 +21,7 @@ export default function Index() {
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="apps" element={<MainApps />}>
-          <Route index element={<Courses />} />
+          <Route index element={<Courses />} loader={roadMapLoader} />
           <Route path="task" element={<MyTasksApp />}>
             <Route index element={<h1>today's task qwdqwdqwd</h1>} />
             <Route path="allTasks" element={<h1>all tasks</h1>} />

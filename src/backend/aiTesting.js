@@ -8,10 +8,10 @@ const splitter = new RecursiveCharacterTextSplitter();
 const loader = new CheerioWebBaseLoader("https://en.wikipedia.org/wiki/Hamada");
 const outputParaser = new StringOutputParser();
 const chatModel = new ChatOpenAI({
-  openAIApiKey: "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",
+  openAIApiKey: "",
 });
 
-async function generateRoadMapStreamed(target, finishedCourses, job) {
+export async function generateRoadMapStreamed(target, finishedCourses, job) {
   const prompt = ChatPromptTemplate.fromMessages([
     [
       "system",
@@ -51,7 +51,7 @@ function extractJsonFromString(text) {
     return null;
   }
 }
-async function generateRoadMap(target, finishedCourses, job) {
+export async function generateRoadMap(target, finishedCourses, job) {
   const prompt = ChatPromptTemplate.fromMessages([
     [
       "system",
@@ -68,11 +68,5 @@ async function generateRoadMap(target, finishedCourses, job) {
     courses: finishedCourses,
     job: job,
   });
-  console.log(extractJsonFromString(roadMap.content));
+  return extractJsonFromString(roadMap.content);
 }
-
-generateRoadMap(
-  "become a full stack developer",
-  "html  , css , java script ",
-  "software developer"
-);

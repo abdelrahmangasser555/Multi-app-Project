@@ -12,9 +12,11 @@ import {
   deleteLink,
   addNoteToVideo,
 } from "../../backend/backendFunctions";
-import { useNavigation } from "react-router-dom";
+import { useNavigation, useLoaderData } from "react-router-dom";
 import NotesDialog from "../../components/notesDialog";
 import DisplayNotesDialog from "../../components/displayNotesDialog";
+import GenerateRoadMap from "../../components/generateRoadMap";
+import RoadMap from "../../components/roadMap";
 export default function Courses() {
   window.postMessage(
     {
@@ -26,6 +28,7 @@ export default function Courses() {
     "http://localhost:5173"
   );
   const [vedioObjects, setVedioObjects] = useState([]);
+  // const [roadMap, setRoadMap] = useState(null);
   const [vedioEnter, setVedioEnter] = useState({
     vedioId: "",
     title: "",
@@ -33,9 +36,10 @@ export default function Courses() {
     notesNames: [],
   });
 
+  const data = useLoaderData();
+
   useEffect(() => {
     const allLinks = getAllLinks();
-    console.log(allLinks);
     setVedioObjects(allLinks);
   }, []);
   function addVedio() {
@@ -140,14 +144,25 @@ export default function Courses() {
           </div>
         ))}
       </div>
-      <button
-        className="btn"
-        onClick={() => {
-          document.getElementById("add-id").showModal();
-        }}
-      >
-        add new vedio
-      </button>
+      {data.steps !== null && <RoadMap steps={data?.steps} />}
+      <div className="buttom-bottoms">
+        <button
+          className="btn"
+          onClick={() => {
+            document.getElementById("add-id").showModal();
+          }}
+        >
+          add new course
+        </button>
+        <button
+          className="generate-road-map btn btn-outline btn-warning"
+          onClick={() => {
+            document.getElementById("generate-road-map-dialog").showModal();
+          }}
+        >
+          add a roadMap
+        </button>
+      </div>
       <dialog id="add-id" className="modal">
         <div className="modal-box">
           <h3 className="modal-title font-bold text-lg">Add New vedio</h3>
@@ -189,6 +204,12 @@ export default function Courses() {
           </div>
         </div>
       </dialog>
+      <GenerateRoadMap />
     </div>
   );
+}
+
+export function loader() {
+  const roadMap = JSON.parse(localStorage.getItem("roadMap")) || null;
+  return roadMap;
 }
