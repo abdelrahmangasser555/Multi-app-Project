@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import "../../pagesStyles/task.css";
 
 export default function MyTasksApp() {
   return (
