@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { generateRoadMap } from "../backend/aiTesting";
 
-export default function GenerateRoadMap() {
+export default function GenerateRoadMap({ setRoadMap }) {
   const [generatingState, setGeneratingState] = useState(false);
   async function roadMapGenerator() {
     setGeneratingState(true);
@@ -15,6 +15,7 @@ export default function GenerateRoadMap() {
       const job = "web developer advisor";
       const roadMap = await generateRoadMap(target, finishedCourses, job);
       localStorage.setItem("roadMap", JSON.stringify(roadMap));
+      setRoadMap(roadMap.steps);
       // setRoadMap(roadMap);
       console.log("generated road map", roadMap);
     } catch (error) {

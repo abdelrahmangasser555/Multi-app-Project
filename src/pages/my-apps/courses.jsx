@@ -38,6 +38,9 @@ export default function Courses() {
 
   const data = useLoaderData();
 
+  // creating a state for the data
+  const [roadMap, setRoadMap] = useState(data.steps ? data.steps : null);
+
   useEffect(() => {
     const allLinks = getAllLinks();
     setVedioObjects(allLinks);
@@ -144,7 +147,7 @@ export default function Courses() {
           </div>
         ))}
       </div>
-      {data.steps !== null && <RoadMap steps={data?.steps} />}
+      {roadMap !== null && <RoadMap steps={roadMap} />}
       <div className="buttom-bottoms">
         <button
           className="btn"
@@ -204,7 +207,7 @@ export default function Courses() {
           </div>
         </div>
       </dialog>
-      <GenerateRoadMap />
+      <GenerateRoadMap setRoadMap={setRoadMap} />
     </div>
   );
 }
