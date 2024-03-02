@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function TodayTaskDialog() {
+export default function TodayTaskDialog({
+  setTaskData,
+  handleAddTaskToDb,
+  handleTaskDataChange,
+}) {
   return (
     <dialog className="task-dialog modal" id="task-dialog">
       <div className="task-modal-box modal-box">
@@ -12,23 +16,27 @@ export default function TodayTaskDialog() {
             className="input-task-name input"
             type="text"
             placeholder="input the task"
-            name="task-name"
+            name="taskName"
+            onChange={(e) => handleTaskDataChange(e)}
           />
           <input
             className="input-task-date input"
             type="time"
             placeholder="input the task date"
-            name="task-date"
+            name="taskDate"
+            onChange={(e) => handleTaskDataChange(e)}
           />
         </div>
         <textarea
           className="textarea-task-description textarea textarea-info"
           placeholder="input the more task details here ..."
-          name="description"
+          name="taskDescription"
+          onChange={(e) => handleTaskDataChange(e)}
         ></textarea>
-        <button className="add-task-button btn">add</button>
+        <button className="add-task-button btn" onClick={handleAddTaskToDb}>
+          add
+        </button>
         <form method="dialog">
-          {/* if there is a button in form, it will close the modal */}
           <button className="btn">close</button>
         </form>
       </div>

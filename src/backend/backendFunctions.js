@@ -77,17 +77,4 @@ export async function addTaskToDb(taskData) {
   }
 }
 
-
 // testing adding to database
-const taskData = {
-  today : "2021-09-01",
-  tasks : [
-    {
-      taskName : "task 1",
-      taskDescription : "task 1 description"
-    },
-    {
-      taskName : "task 2",
-      taskDescription : "task 2 description"
-    }
-  ]

@@ -10,6 +10,25 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaBeer } from "react-icons/fa";
 import TodayTaskDialog from "./TodayTaskDialog";
 export default function TodayTaskTimeline() {
+  const [taskData, setTaskData] = React.useState({
+    taskName: "",
+    taskDate: "",
+    taskDescription: "",
+  });
+
+  function handleAddTaskToDb() {
+    console.log("add task to db");
+  }
+
+  function handleTaskDataChange(e) {
+    const { name, value } = e.target;
+    setTaskData((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+  }
   return (
     <div className="today-task-timeline" id="horizontal-mode">
       <VerticalTimeline>
@@ -41,7 +60,11 @@ export default function TodayTaskTimeline() {
       >
         add task
       </button>
-      <TodayTaskDialog />
+      <TodayTaskDialog
+        setTaskData={setTaskData}
+        handleAddTaskToDb={handleAddTaskToDb}
+        handleTaskDataChange={handleTaskDataChange}
+      />
     </div>
   );
 }
