@@ -57,3 +57,37 @@ export function addNoteToVideo(note, videoIndex) {
     localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
   }
 }
+
+export async function addTaskToDb(taskData) {
+  const user = await connectingToDatabase();
+  try {
+    const addTask = await user.functions.addTask(taskData);
+    console.log(addTask);
+  } catch (err) {
+    console.error("Failed to add task", err);
+    // back up in local storage
+    const elementsInLocalStorage = localStorage.getItem("tasks");
+    if (elementsInLocalStorage === null) {
+      localStorage.setItem("tasks", JSON.stringify([taskData]));
+    } else {
+      const parsedElements = JSON.parse(elementsInLocalStorage);
+      parsedElements.push(taskData);
+      localStorage.setItem("tasks", JSON.stringify(parsedElements));
+    }
+  }
+}
+
+
+// testing adding to database
+const taskData = {
+  today : "2021-09-01",
+  tasks : [
+    {
+      taskName : "task 1",
+      taskDescription : "task 1 description"
+    },
+    {
+      taskName : "task 2",
+      taskDescription : "task 2 description"
+    }
+  ]
