@@ -8,7 +8,7 @@ const splitter = new RecursiveCharacterTextSplitter();
 const loader = new CheerioWebBaseLoader("https://en.wikipedia.org/wiki/Hamada");
 const outputParaser = new StringOutputParser();
 const chatModel = new ChatOpenAI({
-  openAIApiKey: "",
+  openAIApiKey: "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",
 });
 
 export async function generateRoadMapStreamed(target, finishedCourses, job) {

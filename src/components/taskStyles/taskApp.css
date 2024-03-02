@@ -1,0 +1,16 @@
+.today-task-timeline{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4vh;
+  flex-direction: column;
+}
+
+#horizontal-mode {
+  width: 90vw;
+  align-content: center;
+}
+
+.today-task-time-line{
+  background-color: aqua;
+}
