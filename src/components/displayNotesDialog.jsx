@@ -25,7 +25,7 @@ export default function DisplayNotesDialog({
           <div className="code-note-snippet mockup-code">
             {splitCodeByNewLineToArray(code).map((line, i) => (
               <pre data-prefix={i + 1} key={i}>
-                <code>{code}</code>
+                <code>{line}</code>
               </pre>
             ))}
           </div>
