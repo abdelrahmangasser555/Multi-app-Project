@@ -5,6 +5,7 @@ export default function NotesDialog({ index, setVedioObjects }) {
   const [myNotes, setMyNotes] = React.useState({
     title: "",
     content: "",
+    code: "",
   });
 
   // Function to handle changes in the input fields
@@ -18,11 +19,16 @@ export default function NotesDialog({ index, setVedioObjects }) {
 
   // Function to handle adding a new note
   function handleAddNote() {
+    // Check if the title and content are not empty
+    if (!myNotes.title || !myNotes.content) {
+      alert("Please fill in the title and content of the note");
+      return;
+    }
     // Add the note to the corresponding video
     addNoteToVideo(myNotes, index);
 
     // Clear the input fields
-    setMyNotes({ title: "", content: "" });
+    setMyNotes({ title: "", content: "", code: "" });
 
     // Update the videoObjects state to reflect the changes
     setVedioObjects((prevVedios) =>
@@ -52,6 +58,13 @@ export default function NotesDialog({ index, setVedioObjects }) {
           placeholder="Note info goes here..."
           name="content"
           value={myNotes.content}
+          onChange={handleInputChange}
+        />
+        <textarea
+          className="text-area-code-input textarea textarea-bordered textarea-lg w-full max-w-xs"
+          placeholder="Add code optional..."
+          name="code"
+          value={myNotes.code}
           onChange={handleInputChange}
         />
         <button

@@ -306,3 +306,27 @@
   font-style: italic;
   color: #777;
 }
+
+.text-area-code-input{
+  width: 75%;
+  max-height: 30vh;
+  min-height: 10vh;
+  margin-top: 2vh;
+  font-weight: 400;
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 2vh;
+  border: #ff6b6b 2px solid;
+  color: whitesmoke;
+  background-color: transparent;
+  resize: none;
+}
+
+.code-note-snippet{
+  margin-top: 2vh;
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+}

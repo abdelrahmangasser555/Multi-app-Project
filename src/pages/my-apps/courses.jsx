@@ -125,6 +125,7 @@ export default function Courses() {
                       title={note.title}
                       content={note.content}
                       date={convertToReadableDate(note.date)}
+                      code={note.code ? note.code : null}
                       index={index}
                       noteIndex={noteIndex}
                     />
@@ -196,6 +197,12 @@ export default function Courses() {
           <button
             className="add-link-button btn btn-outline btn-accent"
             onClick={addVedio}
+            // when pressing enter it will add the link
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                addVedio();
+              }
+            }}
           >
             add Course
           </button>
