@@ -10,7 +10,8 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaBeer } from "react-icons/fa";
 import TodayTaskDialog from "./TodayTaskDialog";
 import { addTaskToDb } from "../../backend/backendFunctions";
-export default function TodayTaskTimeline({ todayTasks }) {
+
+export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
   const [taskData, setTaskData] = React.useState({
     taskName: "",
     taskDate: "",
@@ -23,8 +24,19 @@ export default function TodayTaskTimeline({ todayTasks }) {
   async function handleAddTaskToDb(taskData) {
     console.log("data base function activated");
     const success = await addTaskToDb(taskData);
-    setNotification({ message: success, type: "alert-success" });
-
+    if (success === "task added successfully") {
+      setNotification({ message: success, type: "alert-success" });
+    } else {
+      setNotification({ message: success, type: "alert-warning" });
+    }
+    setTodayTasks((prevTasks) => {
+      return [
+        {
+          ...prevTasks,
+          tasks: [...prevTasks[0].tasks, taskData],
+        },
+      ];
+    });
     setTaskData({
       taskName: "",
       taskDate: "",
@@ -62,6 +74,15 @@ export default function TodayTaskTimeline({ todayTasks }) {
           <span>{notification.message}</span>
         </div>
       ) : null}
+      <button
+        onClick={() => {
+          document.getElementById("task-dialog").showModal();
+        }}
+        className="btn"
+        id="add-task-button"
+      >
+        add task
+      </button>
       <VerticalTimeline>
         {todayTasks[0]?.tasks?.map((data, index) => {
           return (
@@ -84,14 +105,6 @@ export default function TodayTaskTimeline({ todayTasks }) {
           );
         })}
       </VerticalTimeline>
-      <button
-        onClick={() => {
-          document.getElementById("task-dialog").showModal();
-        }}
-        className="btn"
-      >
-        add task
-      </button>
       <TodayTaskDialog
         setTaskData={setTaskData}
         handleAddTaskToDb={handleAddTaskToDb}

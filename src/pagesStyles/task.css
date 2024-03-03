@@ -109,3 +109,8 @@
   border: white 1px solid;
   
 }
+
+#add-task-button{
+  margin-bottom: 2vh; 
+  padding: 2vh 2vw;
+}

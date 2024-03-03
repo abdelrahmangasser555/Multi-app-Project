@@ -8,7 +8,10 @@ export default function TodayTaskPage() {
   const [todayTasks, setTodayTasks] = React.useState(data ? data : null);
   return (
     <div className="today-task-page-container">
-      <TodayTaskTimeline todayTasks={todayTasks} />
+      <TodayTaskTimeline
+        todayTasks={todayTasks}
+        setTodayTasks={setTodayTasks}
+      />
     </div>
   );
 }

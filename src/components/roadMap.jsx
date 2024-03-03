@@ -1,7 +1,4 @@
 export default function RoadMap({ steps }) {
-  console.log(steps[0].steps, "steps");
-  console.log(steps[0].resources, "resources");
-  console.log(steps[0].learned, "learned");
   const mySteps = steps[0].steps;
   const myResources = steps[0].resources;
   const myLearned = steps[0].learned;
