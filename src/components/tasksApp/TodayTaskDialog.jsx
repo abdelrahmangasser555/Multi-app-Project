@@ -4,6 +4,7 @@ export default function TodayTaskDialog({
   setTaskData,
   handleAddTaskToDb,
   handleTaskDataChange,
+  taskData,
 }) {
   return (
     <dialog className="task-dialog modal" id="task-dialog">
@@ -33,7 +34,10 @@ export default function TodayTaskDialog({
           name="taskDescription"
           onChange={(e) => handleTaskDataChange(e)}
         ></textarea>
-        <button className="add-task-button btn" onClick={handleAddTaskToDb}>
+        <button
+          className="add-task-button btn"
+          onClick={() => handleAddTaskToDb(taskData)}
+        >
           add
         </button>
         <form method="dialog">

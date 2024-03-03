@@ -34,7 +34,14 @@ function App() {
               </NavLink>
             </li>
             <li>
-              <a>my-profile</a>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) => {
+                  isActive ? "active" : "";
+                }}
+              >
+                <a>my-profile</a>
+              </NavLink>
             </li>
           </ul>
         </div>

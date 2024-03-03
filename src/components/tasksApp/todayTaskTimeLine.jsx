@@ -9,15 +9,28 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { FaBeer } from "react-icons/fa";
 import TodayTaskDialog from "./TodayTaskDialog";
-export default function TodayTaskTimeline() {
+import { addTaskToDb } from "../../backend/backendFunctions";
+export default function TodayTaskTimeline({ todayTasks }) {
   const [taskData, setTaskData] = React.useState({
     taskName: "",
     taskDate: "",
     taskDescription: "",
+    status: "uncomplete",
   });
 
-  function handleAddTaskToDb() {
-    console.log("add task to db");
+  const [notification, setNotification] = React.useState(null);
+
+  async function handleAddTaskToDb(taskData) {
+    console.log("data base function activated");
+    const success = await addTaskToDb(taskData);
+    setNotification({ message: success, type: "alert-success" });
+
+    setTaskData({
+      taskName: "",
+      taskDate: "",
+      taskDescription: "",
+      status: "uncomplete",
+    });
   }
 
   function handleTaskDataChange(e) {
@@ -31,24 +44,42 @@ export default function TodayTaskTimeline() {
   }
   return (
     <div className="today-task-timeline" id="horizontal-mode">
+      {notification ? (
+        <div role="alert" className={`alert ${notification.type}`}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{notification.message}</span>
+        </div>
+      ) : null}
       <VerticalTimeline>
-        {todayTimeLineData.map((data, index) => {
+        {todayTasks[0]?.tasks?.map((data, index) => {
           return (
             <VerticalTimelineElement
               key={index}
               className={`vertical-timeline-element--work `}
-              date="2021-09-01"
+              date={data.taskData}
               iconStyle={{ background: "rgb(33, 150, 243)", color: "blue" }}
               icon={<FaBeer />}
               dateClassName="date-time-line"
             >
               <h3 className="vertical-timeline-element-title">
-                {data.cardTitle}
+                {data.taskName}
               </h3>
               <h4 className="vertical-timeline-element-subtitle">
-                {data.cardSubtitle}
+                {data.status}
               </h4>
-              <p>{data.cardDetailedText}</p>
+              <p>{data.taskDescription}</p>
             </VerticalTimelineElement>
           );
         })}
@@ -57,6 +88,7 @@ export default function TodayTaskTimeline() {
         onClick={() => {
           document.getElementById("task-dialog").showModal();
         }}
+        className="btn"
       >
         add task
       </button>
@@ -64,6 +96,7 @@ export default function TodayTaskTimeline() {
         setTaskData={setTaskData}
         handleAddTaskToDb={handleAddTaskToDb}
         handleTaskDataChange={handleTaskDataChange}
+        taskData={taskData}
       />
     </div>
   );

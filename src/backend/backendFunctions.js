@@ -61,8 +61,8 @@ export function addNoteToVideo(note, videoIndex) {
 export async function addTaskToDb(taskData) {
   const user = await connectingToDatabase();
   try {
-    const addTask = await user.functions.addTask(taskData);
-    console.log(addTask);
+    const addTask = await user.functions.addTaskToDay(taskData);
+    return "task added successfully";
   } catch (err) {
     console.error("Failed to add task", err);
     // back up in local storage
@@ -74,6 +74,18 @@ export async function addTaskToDb(taskData) {
       parsedElements.push(taskData);
       localStorage.setItem("tasks", JSON.stringify(parsedElements));
     }
+    return "data is backed up in local storage";
+  }
+}
+
+export async function getTodayTasks() {
+  const user = await connectingToDatabase();
+  try {
+    const task = await user.functions.getTodayTasks();
+    return task;
+  } catch (err) {
+    console.error(err, "an error ocurred gettiing today's task");
+    return "an error occured getting today's data";
   }
 }
 

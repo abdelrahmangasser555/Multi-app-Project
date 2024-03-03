@@ -14,7 +14,9 @@ import Courses from "./pages/my-apps/courses.jsx";
 import MyTasksApp from "./pages/my-apps/myTasks.jsx";
 import { loader as roadMapLoader } from "./pages/my-apps/courses.jsx";
 import RecentTasks from "./components/recentTasks.jsx";
-import TodayTaskPage from "./pages/my-apps/taskPages/todayTaskPage.jsx";
+import TodayTaskPage, {
+  loader as todayTaskLoader,
+} from "./pages/my-apps/taskPages/todayTaskPage.jsx";
 
 export default function Index() {
   // localStorage.removeItem("youtubeLinks");
@@ -26,10 +28,11 @@ export default function Index() {
           <Route index element={<Courses />} loader={roadMapLoader} />
           <Route path="task" element={<MyTasksApp />}>
             <Route path="allTasks" element={<RecentTasks />} />
-            <Route index element={<TodayTaskPage />} />
+            <Route index element={<TodayTaskPage />} loader={todayTaskLoader} />
           </Route>
           <Route element={<h1>extra app </h1>} path="aiWebsite" />
         </Route>
+        <Route path="/profile" element={<h1>hello my profile</h1>} />
       </Route>
     )
   );
