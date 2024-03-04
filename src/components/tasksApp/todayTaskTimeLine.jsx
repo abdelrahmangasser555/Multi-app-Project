@@ -10,12 +10,13 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaBeer } from "react-icons/fa";
 import TodayTaskDialog from "./TodayTaskDialog";
 import { addTaskToDb } from "../../backend/backendFunctions";
-
+import { GiFinishLine } from "react-icons/gi";
 export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
   const [taskData, setTaskData] = React.useState({
     taskName: "",
     taskDate: "",
     taskDescription: "",
+    endTime: "",
     status: "uncomplete",
   });
 
@@ -41,6 +42,7 @@ export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
       taskName: "",
       taskDate: "",
       taskDescription: "",
+      endTime: "",
       status: "uncomplete",
     });
   }
@@ -57,7 +59,11 @@ export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
   return (
     <div className="today-task-timeline" id="horizontal-mode">
       {notification ? (
-        <div role="alert" className={`alert ${notification.type}`}>
+        <div
+          role="alert"
+          className={`alert ${notification.type}`}
+          id="top-today-task-notification"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="stroke-current shrink-0 h-6 w-6"
@@ -86,22 +92,38 @@ export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
       <VerticalTimeline>
         {todayTasks[0]?.tasks?.map((data, index) => {
           return (
-            <VerticalTimelineElement
-              key={index}
-              className={`vertical-timeline-element--work `}
-              date={data.taskData}
-              iconStyle={{ background: "rgb(33, 150, 243)", color: "blue" }}
-              icon={<FaBeer />}
-              dateClassName="date-time-line"
-            >
-              <h3 className="vertical-timeline-element-title">
-                {data.taskName}
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">
-                {data.status}
-              </h4>
-              <p>{data.taskDescription}</p>
-            </VerticalTimelineElement>
+            <div key={index}>
+              <VerticalTimelineElement
+                key={index}
+                className={`vertical-timeline-element--work `}
+                date={data.taskDate}
+                iconStyle={{ background: "rgb(33, 150, 243)", color: "blue" }}
+                icon={<FaBeer />}
+                dateClassName="date-time-line"
+              >
+                <h3 className="vertical-timeline-element-title">
+                  {data.taskName}
+                  <h4
+                    className={`vertical-timeline-element-subtitle ${data.status}`}
+                  >
+                    {data.status}
+                  </h4>
+                </h3>
+                <p>{data.taskDescription}</p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                key={index}
+                className={`vertical-timeline-element--work`}
+                date={data.endTime}
+                iconStyle={{
+                  background: "white",
+                  color: "black",
+                  fontSize: "100px",
+                }}
+                icon={<GiFinishLine />}
+                dateClassName="end-time-line"
+              ></VerticalTimelineElement>
+            </div>
           );
         })}
       </VerticalTimeline>

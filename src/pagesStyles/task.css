@@ -63,6 +63,8 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5%;
+  position : relative;
+  margin-top: 10%;
 }
 
 .input {
@@ -113,4 +115,108 @@
 #add-task-button{
   margin-bottom: 2vh; 
   padding: 2vh 2vw;
+}
+
+#top-today-task-notification {
+
+  animation: today-task-notification 3s ease-in-out forwards;
+}
+
+@keyframes today-task-notification {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+
+.vertical-timeline-element--work{
+  font-family: "handlee" , "sans-serif";
+}
+.vertical-timeline-element-title{
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative  ;
+}
+
+.today-task-description{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20px;
+  background-color: transparent;
+  border: black 2px solid;
+  border-radius: 10px;
+
+}
+
+.vertical-timeline-element-subtitle{
+  position: absolute;
+  top: 13%;
+  z-index: 10;
+  left: 20px;
+  padding: 5px 5px;
+  border-radius: 5px;
+  border: whitesmoke 0.5px solid;
+
+}
+
+.vertical-timeline-element--work h3 {
+  margin-bottom: 10px;
+}
+
+.vertical-timeline-element--work{
+  position: relative;
+}
+
+.uncomplete{
+  color: red;
+  box-sizing: border-box;
+  background-color: rgba(255, 51, 0, 0.263);
+
+}
+
+.complete-task{
+  color: green;
+  background-color: rgba(0, 128, 62, 0.518);
+}
+
+.delayed {
+  color: blueviolet;
+}
+
+.date-time-line{
+  color: white;
+
+}
+
+.end-time-line{
+  color: white;
+}
+
+
+.input-task-date::after{
+  content : "start";
+  position: absolute;
+  top: -20px;
+
+}
+
+.input-task-date-after::after{
+  content: "end";
+    position: absolute;
+    top: -20px;
 }
