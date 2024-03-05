@@ -220,3 +220,26 @@
     position: absolute;
     top: -20px;
 }
+
+.end-task-part-time-line{
+  height: 20vh;
+}
+
+@media screen and (max-width: 767px) {
+  .end-task-part-time-line{
+    height: 15vh;
+  }
+
+  .my-data-inputs{
+    flex-direction: column;
+  }
+    .vertical-timeline-element-subtitle{
+      top: 10%;
+      left: 10px;
+    }
+        .vertical-timeline-element-title{
+          text-align: right;
+          padding-right: 5px;
+        }
+    
+}

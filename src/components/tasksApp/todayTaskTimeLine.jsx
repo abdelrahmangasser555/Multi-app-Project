@@ -113,7 +113,7 @@ export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
               </VerticalTimelineElement>
               <VerticalTimelineElement
                 key={index}
-                className={`vertical-timeline-element--work`}
+                className={`end-task-part-time-line`}
                 date={data.endTime}
                 iconStyle={{
                   background: "white",
