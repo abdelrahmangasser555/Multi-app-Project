@@ -30,7 +30,7 @@ export default function NotesDialog({ index, setVedioObjects }) {
       prevVedios.map((vedio, i) => {
         if (i === index) {
           // Add the new note to the notesNames array of the corresponding video
-          vedio.notesNames.push(myNotes);
+          vedio.notesNames.unshift(myNotes);
         }
         return vedio;
       })

@@ -1,14 +1,12 @@
+import logo from "../images/person.svg";
+
 export default function LoadingTasks() {
   return (
     <div className="loading-tasks">
-      <div className="loading-tasks-container">
-        <div className="loading-tasks-box">
-          <div className="loading-tasks-title"></div>
-          <div className="loading-tasks-content"></div>
-          <div className="loading-tasks-content"></div>
-          <div className="loading-tasks-content"></div>
-        </div>
-      </div>
+      <img src={logo} alt="loading" />
+      <h2>
+        Loading <span className="loading loading-dots loading-sm"></span>
+      </h2>
     </div>
   );
 }

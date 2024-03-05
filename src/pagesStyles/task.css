@@ -243,3 +243,12 @@
         }
     
 }
+
+.loading-tasks{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Handlee", cursive;
+}

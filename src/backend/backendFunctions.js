@@ -18,7 +18,8 @@ export function addYoutubeLink(data) {
     localStorage.setItem("youtubeLinks", JSON.stringify([data]));
   } else {
     const parsedElements = JSON.parse(elementsInLocalStorage);
-    parsedElements.push(data);
+    // insert the link at the beginning of the array
+    parsedElements.unshift(data);
     localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
   }
 }
@@ -33,6 +34,7 @@ export function getAllLinks() {
 }
 
 export function deleteLink(index) {
+  // the index you are given is from the end of the array not the beginning
   const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
   if (elementsInLocalStorage === null) {
     return;
@@ -53,7 +55,7 @@ export function addNoteToVideo(note, videoIndex) {
     return;
   } else {
     const parsedElements = JSON.parse(elementsInLocalStorage);
-    parsedElements[videoIndex].notesNames.push(note);
+    parsedElements[videoIndex].notesNames.unshift(note);
     localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
   }
 }

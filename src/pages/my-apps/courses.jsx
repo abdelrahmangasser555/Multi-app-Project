@@ -43,7 +43,6 @@ export default function Courses() {
 
   useEffect(() => {
     const allLinks = getAllLinks();
-    allLinks.reverse();
     setVedioObjects(allLinks);
   }, []);
   function addVedio() {
