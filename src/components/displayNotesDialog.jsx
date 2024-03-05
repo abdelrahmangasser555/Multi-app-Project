@@ -19,7 +19,7 @@ export default function DisplayNotesDialog({
         <h3 className="display-note-modal-title modal-title font-bold text-lg">
           {title}
         </h3>
-        <p className="display-note-dialog-content">{content}</p>
+        {content && <p className="display-note-dialog-content">{content}</p>}
         <p className="display-note-dialog-date">{date}</p>
         {code && (
           <div className="code-note-snippet mockup-code">

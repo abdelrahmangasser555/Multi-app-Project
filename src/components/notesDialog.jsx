@@ -19,11 +19,6 @@ export default function NotesDialog({ index, setVedioObjects }) {
 
   // Function to handle adding a new note
   function handleAddNote() {
-    // Check if the title and content are not empty
-    if (!myNotes.title || !myNotes.content) {
-      alert("Please fill in the title and content of the note");
-      return;
-    }
     // Add the note to the corresponding video
     addNoteToVideo(myNotes, index);
 

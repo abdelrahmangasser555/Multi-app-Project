@@ -1,7 +1,7 @@
 export default function RoadMap({ steps }) {
-  const mySteps = steps[0].steps;
-  const myResources = steps[0].resources;
-  const myLearned = steps[0].learned;
+  const mySteps = steps[0]?.steps;
+  const myResources = steps[0]?.resources;
+  const myLearned = steps[0]?.learned;
   return (
     <div className="road-map">
       <h1>My Road Map</h1>

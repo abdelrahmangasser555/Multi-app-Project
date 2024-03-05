@@ -164,7 +164,7 @@
   transition: all 0.3s ease;
   border: white 2px solid;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: wrap;
   position: relative;
 }
 
@@ -329,4 +329,8 @@
   text-align: left;
   width: 90%;
   margin-left: 5%;
+}
+
+.buttom-bottoms{
+  margin-bottom: 5vh;
 }

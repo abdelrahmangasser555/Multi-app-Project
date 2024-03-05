@@ -39,10 +39,11 @@ export default function Courses() {
   const data = useLoaderData();
 
   // creating a state for the data
-  const [roadMap, setRoadMap] = useState(data.steps ? data.steps : null);
+  const [roadMap, setRoadMap] = useState(data?.steps ? data?.steps : null);
 
   useEffect(() => {
     const allLinks = getAllLinks();
+    allLinks.reverse();
     setVedioObjects(allLinks);
   }, []);
   function addVedio() {
@@ -58,7 +59,7 @@ export default function Courses() {
     // Add the new video to the local storage
     addYoutubeLink(newVedio);
     // Update the vedioObjects state with the new video
-    setVedioObjects((prevVedios) => [...prevVedios, newVedio]);
+    setVedioObjects((prevVedios) => [newVedio, ...prevVedios]);
     // Clear the input fields
     setVedioEnter({
       vedioId: "",
@@ -77,6 +78,24 @@ export default function Courses() {
       <h1 className="courses-title">
         My <span>Courses</span> Section
       </h1>
+      <div className="buttom-bottoms">
+        <button
+          className="btn"
+          onClick={() => {
+            document.getElementById("add-id").showModal();
+          }}
+        >
+          add new course
+        </button>
+        <button
+          className="generate-road-map btn btn-outline btn-warning"
+          onClick={() => {
+            document.getElementById("generate-road-map-dialog").showModal();
+          }}
+        >
+          add a roadMap
+        </button>
+      </div>
       <div className="my-youtube-vedios">
         {vedioObjects?.map((videoObject, index) => (
           <div
@@ -148,25 +167,12 @@ export default function Courses() {
           </div>
         ))}
       </div>
-      {roadMap !== null && <RoadMap steps={roadMap} />}
-      <div className="buttom-bottoms">
-        <button
-          className="btn"
-          onClick={() => {
-            document.getElementById("add-id").showModal();
-          }}
-        >
-          add new course
-        </button>
-        <button
-          className="generate-road-map btn btn-outline btn-warning"
-          onClick={() => {
-            document.getElementById("generate-road-map-dialog").showModal();
-          }}
-        >
-          add a roadMap
-        </button>
-      </div>
+      {roadMap !== null ? (
+        <RoadMap steps={roadMap} />
+      ) : (
+        <h1> no road maps created yet !</h1>
+      )}
+
       <dialog id="add-id" className="modal">
         <div className="modal-box">
           <h3 className="modal-title font-bold text-lg">Add New vedio</h3>
