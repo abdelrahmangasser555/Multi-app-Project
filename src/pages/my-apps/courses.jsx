@@ -108,7 +108,9 @@ export default function Courses() {
             />
             <div className="right-side-youtube-container">
               <h1 className="header-one-youtube-vedio">{videoObject.title}</h1>
-              <p>{videoObject.description}</p>
+              <p className="vedio-object-description">
+                {videoObject.description}
+              </p>
               <button
                 className="add-note-button btn"
                 onClick={() => {

@@ -334,3 +334,105 @@
 .buttom-bottoms{
   margin-bottom: 5vh;
 }
+
+@media screen and (width  < 768px) {
+  .my-one-vedio-container{
+    flex-direction: column;
+  }
+  .right-side-youtube-container{
+    margin-top: 20px;
+  }
+  .youtube-notes-div{
+    width: 70vw;
+    text-align: center;
+  }
+  .text-area-code-input{
+    width: 80vw;
+  }
+  .code-note-snippet{
+    width: 80vw;
+  }
+  .add-note-button{
+    margin-top: 10px;
+  }
+  .add-link-button{
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .add-link-button{
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .my-youtube-vedios{
+    grid-template-columns: 1fr;
+  }
+  .my-courses-container{
+    margin-top: 10vh;
+  }
+  .my-courses-container .courses-title{
+    font-size: 2rem;
+  }
+  .my-courses-container .courses-title::after{
+    margin-bottom: 10px;
+  }
+  .my-courses-container h1 span{
+    font-size: 1.5rem;
+  }
+  .my-one-vedio-container{
+    width: 80vw;
+  }
+  .my-courses-container:nth-child(even)  .delete-button{
+    top: 10px;
+    left: 10px;
+    right: auto;
+  }
+  .delete-button{
+    bottom: 10px;
+    right: 10px;
+  }
+  .edit-button{
+    bottom: 20px;
+    right: 10px;
+  }
+  .hovered-date{
+    bottom: -35px;
+    left: -13px;
+  }
+  .display-note-dialog-content{
+    width: 80%;
+  }
+  .display-note-dialog-date{
+    right: 30%;
+  }
+  .generate-road-map{
+    margin-left: 0;
+  }
+  .road-map {
+    width: 90vw;
+  }
+  .text-area-code-input{
+    width: 80vw;
+  }
+  .code-note-snippet{
+    width: 80vw;
+  }
+  .buttom-bottoms{
+    margin-bottom: 10vh;
+  }
+  .one-youtube-vedio{
+    margin-bottom: 20px;
+    display: none;
+  }
+  .edit-button{
+    display: none;
+  }
+  .vedio-object-description{
+    text-align: center;
+  }
+  .add-link-button{
+    margin-top: 4vh;
+    align-self: center;
+    margin-left: 30vw;
+  }
+  
+}

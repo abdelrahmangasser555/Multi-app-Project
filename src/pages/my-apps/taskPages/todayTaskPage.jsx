@@ -27,5 +27,6 @@ export default function TodayTaskPage() {
 
 export async function loader() {
   const todayTasks = getTodayTasks();
+  console.log("jomana 7abebt albey");
   return defer({ todayTasks: todayTasks });
 }

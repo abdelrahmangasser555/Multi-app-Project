@@ -33,7 +33,7 @@ export default function DisplayNotesDialog({
         <div className="modal-action">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn">close</button>
+            <button className="close-modal btn">close</button>
           </form>
         </div>
       </div>
