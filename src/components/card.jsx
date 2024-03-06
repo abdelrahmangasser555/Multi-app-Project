@@ -16,7 +16,7 @@ export default function Card({ title, description, link, image }) {
           <h2 className="card-title">{title}</h2>
           <p>{description}</p>
           <div className="card-actions">
-            <button className="btn btn-goust">Buy Now</button>
+            <button className="btn btn-goust">try {title}</button>
           </div>
         </div>
       </div>

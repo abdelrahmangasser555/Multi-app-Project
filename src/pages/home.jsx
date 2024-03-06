@@ -29,7 +29,7 @@ export default function Home() {
   ];
   return (
     <div className="home-container">
-      <div className="home diff aspect-[16/9] ">
+      <div className="double-text home diff aspect-[16/9] ">
         <div className="name-container diff-item-1">
           <div className="bg-primary text-primary-content text-9xl font-black grid place-content-center">
             Boody

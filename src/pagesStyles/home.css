@@ -27,3 +27,20 @@
   transition: all 0.7s ease;
 }
 
+@media screen and (width  < 767px)  {
+  .double-text{
+    display: none;
+  }
+  .my-cards-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .top-navigation-apps-list{
+
+  }
+  .top-navigation-apps{
+    width: 100vw;
+  }
+}
+

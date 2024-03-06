@@ -338,9 +338,10 @@
 @media screen and (width  < 768px) {
   .my-one-vedio-container{
     flex-direction: column;
+    min-width: 95vw;
   }
   .right-side-youtube-container{
-    margin-top: 20px;
+    margin-top: 30px;
   }
   .youtube-notes-div{
     width: 70vw;
@@ -433,6 +434,13 @@
     margin-top: 4vh;
     align-self: center;
     margin-left: 30vw;
+  }
+
+  .buttom-bottoms{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
   }
   
 }

@@ -94,25 +94,23 @@ export default function TodayTaskTimeline({ todayTasks, setTodayTasks }) {
           return (
             <div key={index}>
               <VerticalTimelineElement
-                key={index}
                 className={`vertical-timeline-element--work `}
                 date={data.taskDate}
                 iconStyle={{ background: "rgb(33, 150, 243)", color: "blue" }}
                 icon={<FaBeer />}
                 dateClassName="date-time-line"
               >
-                <h3 className="vertical-timeline-element-title">
+                <div className="vertical-timeline-element-title">
                   {data.taskName}
                   <h4
                     className={`vertical-timeline-element-subtitle ${data.status}`}
                   >
                     {data.status}
                   </h4>
-                </h3>
+                </div>
                 <p>{data.taskDescription}</p>
               </VerticalTimelineElement>
               <VerticalTimelineElement
-                key={index}
                 className={`end-task-part-time-line`}
                 date={data.endTime}
                 iconStyle={{

@@ -208,13 +208,6 @@
 }
 
 
-.input-task-date::after{
-  content : "start";
-  position: absolute;
-  top: -20px;
-
-}
-
 .input-task-date-after::after{
   content: "end";
     position: absolute;
@@ -233,14 +226,31 @@
   .my-data-inputs{
     flex-direction: column;
   }
-    .vertical-timeline-element-subtitle{
-      top: 10%;
-      left: 10px;
-    }
-        .vertical-timeline-element-title{
-          text-align: right;
-          padding-right: 5px;
-        }
+  .vertical-timeline-element-subtitle{
+    top: 10%;
+    left: 10px;
+  }
+  .vertical-timeline-element-title{
+    text-align: right;
+    padding-right: 5px;
+  }
+  .input-task-date-after{
+    position: relative;
+  }
+  .input-task-date-after::after{
+    content: "hamada";
+    position: absolute;
+    bottom: 10px;
+  }
+  .input-task-date-after{
+    text-align: center;
+    touch-action: manipulation;
+
+  }
+
+  .close-button{
+    margin-top: 1vh;
+  }
     
 }
 
@@ -257,4 +267,14 @@
   font-size: 2em;
   color: white;
   margin-bottom: 10vh;
+}
+
+.heading-time{
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1vh;
 }

@@ -21,21 +21,27 @@ export default function TodayTaskDialog({
           value={taskData.taskName}
         />
         <div className="my-data-inputs">
-          <input
-            className="input-task-date input"
-            type="time"
-            placeholder="input the task date"
-            name="taskDate"
-            onChange={(e) => handleTaskDataChange(e)}
-            value={taskData.taskDate}
-          />
-          <input
-            className="input-task-date-after input"
-            type="time"
-            name="endTime"
-            onChange={(e) => handleTaskDataChange(e)}
-            value={taskData.endTime}
-          />
+          <div className="heading-time">
+            start time
+            <input
+              className="input-task-date-after input"
+              type="time"
+              placeholder="input the task date"
+              name="taskDate"
+              onChange={(e) => handleTaskDataChange(e)}
+              value={taskData.taskDate}
+            />
+          </div>
+          <div className="heading-time">
+            end time
+            <input
+              className="input-task-date-after input"
+              type="time"
+              name="endTime"
+              onChange={(e) => handleTaskDataChange(e)}
+              value={taskData.endTime}
+            />
+          </div>
         </div>
         <textarea
           className="textarea-task-description textarea textarea-info"
@@ -51,7 +57,7 @@ export default function TodayTaskDialog({
           add
         </button>
         <form method="dialog">
-          <button className="btn">close</button>
+          <button className="close-button btn">close</button>
         </form>
       </div>
     </dialog>
