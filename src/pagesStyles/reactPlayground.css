@@ -1,0 +1,35 @@
+.react-playground-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 90vw;
+  flex-direction: column;
+}
+
+.react-playground-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-top: 40px;
+}
+
+.react-playground-description {
+  text-align: center;
+  margin-bottom: 5vh;
+  font-size: 1.1rem;
+
+}
+
+.react-playground-heading span {
+  color: #f5c400;
+}
+
+.react-playground-editor {
+  height: 90vh;
+}
+
+.CodeMirror {
+  height: 100%;
+  width: 100%;
+}

@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Card from "../components/card";
+import { Sandpack } from "@codesandbox/sandpack-react";
+// import "@codesandbox/sandpack-react/dist/index.css";
 
 import "../pagesStyles/home.css";
 import settings from "../images/colored-settings.png";

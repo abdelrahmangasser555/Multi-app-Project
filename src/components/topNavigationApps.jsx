@@ -29,6 +29,14 @@ export default function TopNavigationApps() {
         >
           ai website
         </NavLink>
+        <NavLink
+          to="codeEditor"
+          className={({ isActive }) => (isActive ? "active-app" : "")}
+          id="item-nav-apps"
+          end
+        >
+          Code Editor
+        </NavLink>
       </ul>
     </nav>
   );

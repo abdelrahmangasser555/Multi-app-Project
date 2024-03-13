@@ -17,6 +17,7 @@ import RecentTasks from "./components/recentTasks.jsx";
 import TodayTaskPage, {
   loader as todayTaskLoader,
 } from "./pages/my-apps/taskPages/todayTaskPage.jsx";
+import ReactPlayground from "./pages/my-apps/ReactPlayground.jsx";
 
 export default function Index() {
   // localStorage.removeItem("youtubeLinks");
@@ -26,6 +27,7 @@ export default function Index() {
         <Route index element={<Home />} />
         <Route path="apps" element={<MainApps />}>
           <Route index element={<Courses />} loader={roadMapLoader} />
+          <Route path="codeEditor" element={<ReactPlayground/>} />
           <Route path="task" element={<MyTasksApp />}>
             <Route path="allTasks" element={<RecentTasks />} />
             <Route index element={<TodayTaskPage />} loader={todayTaskLoader} />
