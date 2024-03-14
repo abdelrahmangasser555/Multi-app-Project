@@ -31,5 +31,45 @@
 
 .CodeMirror {
   height: 100%;
-  width: 100%;
+  width: 70vh;
+}
+
+#main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-file-explorer>div {
+  position: relative;
+  padding-top: 60px;
+}
+
+#main-app-container>div>div>div>div>div{
+  width: 30vw;
+  height: 90vh;
+  overflow: auto;
+  padding: 20px;
+}
+
+.add-file-button {
+  position: absolute;
+  bottom: 20px;
+  left: 4%;
+
+}
+
+.save-file-button {
+  
+}
+
+#main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-c-iVbYez.sp-console.sp-stack {
+  
+}
+
+#main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-file-explorer>div>div>button:nth-child(1) {
+
+}
+
+.top-bar-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
 }
