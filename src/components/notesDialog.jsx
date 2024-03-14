@@ -25,13 +25,13 @@ export default function NotesDialog({ index, setVedioObjects }) {
 
     // Clear the input fields
     setMyNotes({ title: "", content: "", code: "" });
-
+    const date = new Date();
     // Update the videoObjects state to reflect the changes
     setVedioObjects((prevVedios) =>
       prevVedios.map((vedio, i) => {
         if (i === index) {
           // Add the new note to the notesNames array of the corresponding video
-          vedio.notesNames.unshift(myNotes);
+          vedio.notesNames.unshift({...myNotes , date: date.toDateString()});
         }
         return vedio;
       })
