@@ -34,7 +34,7 @@
   width: 70vh;
 }
 
-#main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-file-explorer>div {
+/* #main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-file-explorer>div {
   position: relative;
   padding-top: 60px;
 }
@@ -44,6 +44,11 @@
   height: 90vh;
   overflow: auto;
   padding: 20px;
+} */
+#main-app-container>div>div>div.sp-1880783075.sp-c-fVPbOs.sp-c-fVPbOs-LrWkf-variant-dark.sp-wrapper>div>div{
+  height: 90vh;
+  padding: 20px;
+  overflow: auto;
 }
 
 .add-file-button {
@@ -62,7 +67,6 @@
 }
 
 #main-app-container>div>div>div>div>div.sp-c-euXojQ.sp-file-explorer>div>div>button:nth-child(1) {
-
 }
 
 .top-bar-container {
