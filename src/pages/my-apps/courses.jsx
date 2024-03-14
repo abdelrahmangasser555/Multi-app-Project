@@ -17,6 +17,7 @@ import NotesDialog from "../../components/notesDialog";
 import DisplayNotesDialog from "../../components/displayNotesDialog";
 import GenerateRoadMap from "../../components/generateRoadMap";
 import RoadMap from "../../components/roadMap";
+import Ide from "../../components/Ide";
 export default function Courses() {
   window.postMessage(
     {
@@ -97,74 +98,76 @@ export default function Courses() {
       </div>
       <div className="my-youtube-vedios">
         {vedioObjects?.map((videoObject, index) => (
-          <div
-            key={index}
-            className="my-one-vedio-container  bg-base-200 shadow-xl"
-          >
-            <Youtube
-              key={index}
-              videoId={videoObject.vedioId} // Corrected to access the videoId property
-              className="one-youtube-vedio"
-            />
-            <div className="right-side-youtube-container">
-              <h1 className="header-one-youtube-vedio">{videoObject.title}</h1>
-              <p className="vedio-object-description">
-                {videoObject.description}
-              </p>
-              <button
-                className="add-note-button btn"
-                onClick={() => {
-                  // pass the key to notes dialog
+          <div key={index} className="full-conatainer-with-editor">
+            <div className="my-one-vedio-container  bg-base-200 shadow-xl">
+              <Youtube
+                key={index}
+                videoId={videoObject.vedioId} // Corrected to access the videoId property
+                className="one-youtube-vedio"
+              />
+              <div className="right-side-youtube-container">
+                <h1 className="header-one-youtube-vedio">
+                  {videoObject.title}
+                </h1>
+                <p className="vedio-object-description">
+                  {videoObject.description}
+                </p>
+                <button
+                  className="add-note-button btn"
+                  onClick={() => {
+                    // pass the key to notes dialog
 
-                  document
-                    .getElementById(`notes-dialog-id-${index}`)
-                    .showModal();
-                }}
-              >
-                add note
-              </button>
-              <NotesDialog index={index} setVedioObjects={setVedioObjects} />
-              <div className="youtube-notes-div">
-                {videoObject.notesNames.map((note, noteIndex) => (
-                  <button
-                    key={noteIndex}
-                    className="notes-p"
-                    onClick={() => {
-                      document
-                        .getElementById(
-                          `display-notes-dialog-${index}-${noteIndex}`
-                        )
-                        .showModal();
-                    }}
-                  >
-                    {note.title}
-                    <p className="hovered-date">
-                      {convertToReadableDateNotLong(note.date)}
-                    </p>
-                    <DisplayNotesDialog
-                      title={note.title}
-                      content={note.content}
-                      date={convertToReadableDate(note.date)}
-                      code={note.code ? note.code : null}
-                      index={index}
-                      noteIndex={noteIndex}
-                    />
-                  </button>
-                ))}
+                    document
+                      .getElementById(`notes-dialog-id-${index}`)
+                      .showModal();
+                  }}
+                >
+                  add note
+                </button>
+                <NotesDialog index={index} setVedioObjects={setVedioObjects} />
+                <div className="youtube-notes-div">
+                  {videoObject.notesNames.map((note, noteIndex) => (
+                    <button
+                      key={noteIndex}
+                      className="notes-p"
+                      onClick={() => {
+                        document
+                          .getElementById(
+                            `display-notes-dialog-${index}-${noteIndex}`
+                          )
+                          .showModal();
+                      }}
+                    >
+                      {note.title}
+                      <p className="hovered-date">
+                        {convertToReadableDateNotLong(note.date)}
+                      </p>
+                      <DisplayNotesDialog
+                        title={note.title}
+                        content={note.content}
+                        date={convertToReadableDate(note.date)}
+                        code={note.code ? note.code : null}
+                        index={index}
+                        noteIndex={noteIndex}
+                      />
+                    </button>
+                  ))}
+                </div>
+                <button className="edit-button btn">edit</button>
+                <button
+                  className="delete-button btn btn-outline "
+                  onClick={() => {
+                    deleteLink(index);
+                    setVedioObjects((prevVedios) =>
+                      prevVedios.filter((vedio, i) => i !== index)
+                    );
+                  }}
+                >
+                  delete
+                </button>
               </div>
-              <button className="edit-button btn">edit</button>
-              <button
-                className="delete-button btn btn-outline "
-                onClick={() => {
-                  deleteLink(index);
-                  setVedioObjects((prevVedios) =>
-                    prevVedios.filter((vedio, i) => i !== index)
-                  );
-                }}
-              >
-                delete
-              </button>
             </div>
+            <Ide index={index} myCode={videoObject.code} />
           </div>
         ))}
       </div>

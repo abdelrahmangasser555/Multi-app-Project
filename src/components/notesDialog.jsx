@@ -1,5 +1,5 @@
 import React from "react";
-import Editor from '@monaco-editor/react';
+import Editor from "@monaco-editor/react";
 import { addNoteToVideo } from "../backend/backendFunctions";
 
 export default function NotesDialog({ index, setVedioObjects }) {
@@ -31,7 +31,7 @@ export default function NotesDialog({ index, setVedioObjects }) {
       prevVedios.map((vedio, i) => {
         if (i === index) {
           // Add the new note to the notesNames array of the corresponding video
-          vedio.notesNames.unshift({...myNotes , date: date.toDateString()});
+          vedio.notesNames.unshift({ ...myNotes, date: date.toDateString() });
         }
         return vedio;
       })
@@ -42,7 +42,7 @@ export default function NotesDialog({ index, setVedioObjects }) {
       ...prevNotes,
       code: value,
     }));
-  }
+  };
   return (
     <dialog id={`notes-dialog-id-${index}`} className="modal">
       <div className="modal-box">

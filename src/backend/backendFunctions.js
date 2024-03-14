@@ -60,6 +60,18 @@ export function addNoteToVideo(note, videoIndex) {
   }
 }
 
+export function SaveCodeToLocalStorage(code, index) {
+  const elementsInLocalStorage = localStorage.getItem("youtubeLinks");
+  if (elementsInLocalStorage === null) {
+    return;
+  } else {
+    const parsedElements = JSON.parse(elementsInLocalStorage);
+    parsedElements[index].code = code;
+    console.log(parsedElements[index]);
+    localStorage.setItem("youtubeLinks", JSON.stringify(parsedElements));
+  }
+}
+
 export async function addTaskToDb(taskData) {
   const user = await connectingToDatabase();
   try {
