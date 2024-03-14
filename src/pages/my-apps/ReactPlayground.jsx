@@ -1,4 +1,5 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
+import Editor from '@monaco-editor/react';
 // import "@codesandbox/sandpack-react/dist/index.css";
 import "../../pagesStyles/reactPlayground.css"
 export default function ReactPlayground() {

@@ -1,4 +1,5 @@
 import React from "react";
+import Editor from '@monaco-editor/react';
 import { addNoteToVideo } from "../backend/backendFunctions";
 
 export default function NotesDialog({ index, setVedioObjects }) {
@@ -36,7 +37,12 @@ export default function NotesDialog({ index, setVedioObjects }) {
       })
     );
   }
-
+  const handleEditorCodeChange = (value, event) => {
+    setMyNotes((prevNotes) => ({
+      ...prevNotes,
+      code: value,
+    }));
+  }
   return (
     <dialog id={`notes-dialog-id-${index}`} className="modal">
       <div className="modal-box">
@@ -55,15 +61,16 @@ export default function NotesDialog({ index, setVedioObjects }) {
           value={myNotes.content}
           onChange={handleInputChange}
         />
-        <textarea
-          className="text-area-code-input textarea textarea-bordered textarea-lg w-full max-w-xs"
-          placeholder="Add code optional..."
-          name="code"
+        <Editor
+          height="18vh"
+          defaultLanguage="javascript"
+          defaultValue="//add some code in here ..."
           value={myNotes.code}
-          onChange={handleInputChange}
+          theme="vs-dark"
+          onChange={handleEditorCodeChange}
         />
         <button
-          className="add-link-button btn btn-outline btn-accent"
+          className="add-note-button btn btn-outline btn-accent"
           onClick={handleAddNote}
         >
           Add Note
