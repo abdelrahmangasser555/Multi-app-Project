@@ -6,6 +6,7 @@ import {
   convertToReadableDate,
   convertToReadableDateNotLong,
 } from "../../utilities/useFulFunc";
+import { MdDelete } from "react-icons/md";
 import {
   getAllLinks,
   addYoutubeLink,
@@ -155,7 +156,7 @@ export default function Courses() {
                 </div>
                 <button className="edit-button btn">edit</button>
                 <button
-                  className="delete-button btn btn-outline "
+                  className="delete-button btn btn-ghost "
                   onClick={() => {
                     deleteLink(index);
                     setVedioObjects((prevVedios) =>
@@ -163,7 +164,7 @@ export default function Courses() {
                     );
                   }}
                 >
-                  delete
+                  <MdDelete size={30} />
                 </button>
               </div>
             </div>
